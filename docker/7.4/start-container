@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+if [ ! -d "/var/www/html/laravel-crm" ]; then
+  composer create-project krayin/laravel-crm
+  chmod 777 /var/www/html/laravel-crm/storage
+  chmod 777 /var/www/html/laravel-crm/storage/logs
+  chmod 666 /var/www/html/laravel-crm/storage/logs/laravel.log
+fi
+
 if [ ! -z "$WWWUSER" ]; then
     usermod -u $WWWUSER sail
 fi
